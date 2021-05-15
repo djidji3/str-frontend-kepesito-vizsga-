@@ -1,0 +1,32 @@
+<section class="container-md mt-5">
+    <form #mForm="ngForm">
+        <div class="form-group">
+            <label class="text-warning" for="title">Movie Title:</label>
+            <input id="title" type="text" class="form-control" required pattern="^[A-Űa-ű ]{5,25}$" name="title" [(ngModel)]="movie.title">
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label class="text-warning" for="year">Release year:</label>
+                <input id="year" type="text" class="form-control" required pattern="^19[0-9][0-9]$|^20[0-1][0-9]$|^202[0-1]$" name="year" [(ngModel)]="movie.year">
+            </div>
+            <div class="form-group col-6">
+                <label class="text-warning" for="category">Category:</label>
+                <select class="form-control" id="category" name="category" required [(ngModel)]="movie.category">
+                  <option value="" disabled selected >Choose Category</option>
+                  <option value="drama">Drama</option>
+                  <option value="fantasy">Fantasy</option>
+                  <option value="action">Action</option>
+                </select>
+            </div>
+        </div>
+        <button (click)="saveMovie()" [disabled]="mForm.invalid" class="btn btn-warning m-1">Save</button>
+        <div *ngIf="mForm.invalid" class="text-danger">
+            <small>Fill all field to save!</small>
+        </div>
+
+    </form>
+    <br>
+
+
+
+</section>

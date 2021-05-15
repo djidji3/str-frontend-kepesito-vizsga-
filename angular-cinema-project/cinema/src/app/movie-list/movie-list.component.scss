@@ -1,0 +1,31 @@
+@import './mixin';
+.table-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #get-button {
+        @include cinema-background-style;
+        @include set-text;
+    }
+    table {
+        thead {
+            background-color: gray;
+            font-weight: bold;
+            @include set-text;
+            th {
+                @include cinema-background-style;
+                @include set-text;
+            }
+        }
+        /*  tbody {} */
+        td {
+            @include set-text;
+            .btn-danger {
+                @include delete-style;
+            }
+        }
+        tr:nth-child(even) {
+            background-color: rgb(170, 170, 170);
+        }
+    }
+}
